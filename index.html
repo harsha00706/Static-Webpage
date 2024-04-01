@@ -1,0 +1,133 @@
+r7<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url('cr7.jpeg'); 
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .container {
+        width: 50%;
+        margin: 50px auto;
+        
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        text-align: center;
+        color: #0066ff;
+    }
+    input[type="text"], input[type="email"], input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        width: 100%;
+        background-color: #0066ff;
+        color: white;
+        padding: 10px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #0052cc;
+    }
+    .error {
+        color: red;
+    }
+    nav {
+        
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+    }
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    nav ul li {
+        display: inline;
+        padding: 0 10px;
+    }
+    nav ul li a {
+        text-decoration: none;
+        color: #0066ff;
+        font-weight: bold;
+    }
+    nav ul li a:hover {
+        color: #0052cc;
+    }
+    label{
+        color: blue;
+    }
+</style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="https://www.cristianoronaldo.com/#cr7">Home</a></li>
+        <li><a href="https://www.cristianoronaldo.com/signature-museum">About Us</a></li>
+        <li><a href="https://www.cristianoronaldo.com/brands">Contact Us</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <h2>Registration Form</h2>
+    <form id="registrationForm" onsubmit="return validateForm()">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <input type="submit" value="Register" aria-label="">
+    </form>
+    <div id="error" class="error"></div>
+</div>
+
+<script>
+    function validateForm() {
+        var username = document.getElementById('username').value;
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        var errorElement = document.getElementById('error');
+
+        errorElement.innerHTML = "";
+
+        if (username.length < 5) {
+            errorElement.innerHTML += "Username must be at least 5 characters long<br>";
+            return false;
+        }
+
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email.match(emailPattern)) {
+            errorElement.innerHTML += "Invalid email address<br>";
+            return false;
+        }
+
+        if (password.length < 8) {
+            errorElement.innerHTML += "Password must be at least 8 characters long<br>";
+            return false;
+        }
+        window.location.href = 'E:/Harsha fswd project/login.html';
+
+        return false;
+    }
+</script>
+
+</body>
+</html>
